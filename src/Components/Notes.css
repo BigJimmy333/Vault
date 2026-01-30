@@ -1,0 +1,230 @@
+/*Page Background*/
+.notes-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: #e5e7eb;
+  padding-bottom: 80px; /* space for bottom nav */
+}
+
+/*Header*/
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.notes-header h1 {
+  display: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+/*Search Bar*/
+.search-bar {
+  padding: 0 20px 16px;
+}
+
+.search-bar input {
+  width: 98%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  background: #1e293b;
+  color: #e5e7eb;
+  font-size: 15px;
+}
+
+/*Filter buttons*/
+.filters {
+  display: center;
+  gap: 10px;
+  padding: 0 20px 20px;
+  overflow-x: auto;
+}
+
+.chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #1e293b;
+  color: #cbd5f5;
+  border: none;
+  white-space: nowrap;
+}
+
+.chip.active {
+  background: #2563eb;
+  color: white;
+}
+
+
+/*Create new note button*/
+.add-note-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 40px;
+
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  /*Curve*/
+  border-radius: 50%;
+
+  background-color: #3b82f6;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+}
+
+/*Note Display*/
+/*Display three in a row*/
+.notes-grid {
+  margin-top: 1rem;
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 boxes per row */
+  gap: 16px;
+}
+
+/*Color of the notes*/
+.note-card {
+  padding: 1rem;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #1e293b, #050f3c);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* Blue */
+.note-card.blue {
+  background: linear-gradient(145deg, #1e3a8a, #020617);
+}
+
+/* Green */
+.note-card.green {
+  background: linear-gradient(145deg, #064e3b, #020617);
+}
+
+/* Purple */
+.note-card.purple {
+  background: linear-gradient(145deg, #4c1d95, #020617);
+}
+
+/* Orange */
+.note-card.orange {
+  background: linear-gradient(145deg, #7c2d12, #020617);
+}
+
+.note-card h2 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+/*Give the text a new line*/
+.note-text {
+  white-space: pre-wrap;
+  color: #cbd5f5;
+  font-size: 16px;
+}
+
+/*Right click menu*/
+.context-menu {
+  position: fixed;
+  background: #020617;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  gap: 6px;
+  z-index: 1000;
+  transform: rotate(45deg) translate(80px);
+}
+
+.color-option {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* Color dots */
+.color-option.blue { background: #2563eb; }
+.color-option.green { background: #22c55e; }
+.color-option.purple { background: #a855f7; }
+.color-option.orange { background: #f97316; }
+
+
+/*Bottom Navigation*/
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #020617;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.bottom-nav span {
+  color: #64748b;
+}
+
+.bottom-nav .active {
+  color: #3b82f6;
+}
+
+
+
+/* Dragging styles */
+.note-card {
+  cursor: grab;
+}
+
+.note-card:active {
+  cursor: grabbing;
+}
+
+.note-card.dragging {
+  opacity: 0.5;
+}
+
+
+
+/*Text editor*/
+.full-editor {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.editor-textarea {
+  flex: 1;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: black;
+}
+
+.editor-title {
+  font-size: 32px;
+}
