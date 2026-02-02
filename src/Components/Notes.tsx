@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import FullNoteEditor from "./FullNoteEditor";
+import RightClickMenu from "./RightClickMenu";
 import "./Notes.css";
 
 
@@ -157,32 +158,20 @@ function Notes() {
 
 
             {/*Right Click Menu */}
-           {contextMenu && (
-            <div
-                className="context-menu" 
-                style={{
-                top: contextMenu.y,
-                left: contextMenu.x,
-                }}
-            > Change Color:
-                {colors.map((color) => (
-                <button
-                    key={color}
-                    className={`color-option ${color}`}
-                    onClick={() => {
-                    setNotes(
-                        notes.map((n) =>
-                        n.id === contextMenu.noteId? { ...n, color }: n
-                        )
-                    );
-                    setContextMenu(null);
-                    }}
-                >
-                    {color}
-                </button>
-                ))}
-            </div>
-            )}
+            <RightClickMenu
+            position={contextMenu}
+            colors={colors}
+            onSelect={(noteId, color) => {
+                setNotes(
+                    notes.map((n) =>
+                        n.id === noteId ? { ...n, color } : n
+                    )
+                );
+            setContextMenu(null);
+            }}
+            onClose={() => setContextMenu(null)}
+            />
+
 
 
             {/* When user clicks button they can create a new note */}
