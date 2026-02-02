@@ -3,13 +3,24 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.85);
+  opacity: 0;
   background: radial-gradient(circle, #020617 40%, rgba(2,6,23,0.95));
   display: grid;
   place-items: center;
   z-index: 1000;
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  animation: radial-in 0.15s ease-out forwards;
 }
+
+@keyframes radial-in {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
 
 .radial-option {
   position: absolute;
@@ -25,6 +36,32 @@
   transform: scale(1.15);
   box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
 }
+
+.radial-center {
+  width: 40px;
+  height: 40px;          /* make it square */
+  border-radius: 50%;
+  border: none;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 18px;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  line-height: 1;        /* stops font vertical weirdness */
+  padding: 0;            /* ensure no default padding */
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.radial-center:hover {
+  background: #111827;
+  transform: scale(1.1);
+}
+
+
 
 /* Color styles */
 .radial-option.blue   { background: #2563eb; }

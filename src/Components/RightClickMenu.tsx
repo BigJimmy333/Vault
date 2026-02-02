@@ -31,6 +31,18 @@ function RadialMenu({ position, colors, onSelect, onClose }: Props) {
       }}
       onClick={onClose}
     >
+
+    <button
+        className="radial-center"
+        onClick={(e) => {
+        e.stopPropagation();
+        onClose();
+        }}
+    >
+    x
+    </button>
+
+
       {/*This divides the circle by the amount of colors (4) */}
       {colors.map((color, index) => {
         const angle = (360 / colors.length) * index;
