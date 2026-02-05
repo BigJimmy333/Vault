@@ -1,18 +1,24 @@
 import "./RightClickMenu.css";
 
+import type { NoteColor } from "./Notes";
+
+
 type Position = {
   x: number;
   y: number;
   noteId: number;
 };
 
+
+
 type Props = {
   position: Position | null;
-  onChangeColor: () => void;
+  colors: NoteColor[];
+  onSelect: (noteId: number, color: NoteColor) => void;
   onClose: () => void;
 };
 
-function ContextMenu({ position, onChangeColor, onClose }: Props) {
+function RightClickMenu({ position, colors, onSelect, onClose }: Props) {
   if (!position) return null;
 
   return (
@@ -29,14 +35,20 @@ function ContextMenu({ position, onChangeColor, onClose }: Props) {
 
       <div className="menu-separator" />
 
-      <div
-        className="menu-item submenu"
-        onClick={(e) => {
-          e.stopPropagation();
-          onChangeColor();
-        }}
-      >
+      <div className="menu-item submenu">
         Change color ▸
+        <div className="submenu-content">
+          {colors.map((color) => (
+            <div
+              key={color}
+              className={`color-option ${color}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelect(position.noteId, color);
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="menu-separator" />
@@ -46,4 +58,4 @@ function ContextMenu({ position, onChangeColor, onClose }: Props) {
   );
 }
 
-export default ContextMenu;
+export default RightClickMenu;

@@ -10,27 +10,75 @@
   z-index: 1000;
 }
 
+/* Base menu item */
 .menu-item {
   padding: 8px 14px;
   cursor: pointer;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .menu-item:hover {
   background: #1f2937;
 }
 
+/* Dangerous actions */
 .menu-item.danger {
   color: #f87171;
 }
 
-.menu-separator {
-  height: 1px;
-  background: #1f2937;
-  margin: 6px 0;
+.submenu {
+  position: relative;
 }
 
-.submenu {
+/* Floating submenu */
+.submenu-content {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  
+
+  background: #111827;
+  border-radius: 6px;
+  padding: 6px;
+  display: none;
+  gap: 6px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Show submenu on hover */
+.submenu:hover .submenu-content {
   display: flex;
-  justify-content: space-between;
+}
+
+/* Color picker dots */
+.color-option {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-option.blue {
+  background: #3b82f6;
+}
+
+.color-option.green {
+  background: #22c55e;
+}
+
+.color-option.purple {
+  background: #a855f7;
+}
+
+.color-option.orange {
+  background: #f97316;
+}
+
+/* Subtle hover feedback */
+.color-option:hover {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
 }

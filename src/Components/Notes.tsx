@@ -4,7 +4,7 @@ import RightClickMenu from "./RightClickMenu";
 import "./Notes.css";
 
 
-type NoteColor = "blue" | "green" | "purple" | "orange";
+export type NoteColor = "blue" | "green" | "purple" | "orange";
 
 type Note = {
   id: number;
