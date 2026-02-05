@@ -1,97 +1,36 @@
-.radial-menu {
+.context-menu {
   position: fixed;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0.85);
-  opacity: 0;
-  background: radial-gradient(circle, #020617 40%, rgba(2,6,23,0.95));
-  display: grid;
-  place-items: center;
-  z-index: 1000;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  animation: radial-in 0.15s ease-out forwards;
-  overflow: hidden;
-}
-
-@keyframes radial-in {
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-
-.radial-option {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  transform-origin: center;
-}
-
-.radial-option::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.radial-option:hover::after {
-  transform: scale(1.25);
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
-}
-
-
-
-.radial-center {
-  width: 40px;
-  height: 40px;          /* make it square */
-  border-radius: 50%;
-  border: none;
-  background: #020617;
-  color: #e5e7eb;
-  font-size: 18px;
-  cursor: pointer;
-
-  display: grid;
-  place-items: center;
-
-  line-height: 1;        /* stops font vertical weirdness */
-  padding: 0;            /* ensure no default padding */
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
-  transition: background 0.15s ease, transform 0.15s ease;
-}
-
-.radial-center:hover {
+  min-width: 180px;
   background: #111827;
-  transform: scale(1.1);
+  color: #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  padding: 6px 0;
+  font-size: 14px;
+  z-index: 1000;
 }
 
-
-
-/* Color styles */
-.radial-option.blue   { background: #2563eb; }
-.radial-option.green  { background: #22c55e; }
-.radial-option.purple { background: #a855f7; }
-.radial-option.orange { background: #f97316; }
-
-
-.radial-svg {
-  position: absolute;
-  inset: 0;
-}
-
-.svg-wedge {
+.menu-item {
+  padding: 8px 14px;
   cursor: pointer;
-  transition: filter 0.15s ease;
+  white-space: nowrap;
 }
 
-.svg-wedge:hover {
-  filter: brightness(1.15);
+.menu-item:hover {
+  background: #1f2937;
+}
+
+.menu-item.danger {
+  color: #f87171;
+}
+
+.menu-separator {
+  height: 1px;
+  background: #1f2937;
+  margin: 6px 0;
+}
+
+.submenu {
+  display: flex;
+  justify-content: space-between;
 }
