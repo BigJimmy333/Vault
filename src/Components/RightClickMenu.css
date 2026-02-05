@@ -11,6 +11,7 @@
   z-index: 1000;
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
   animation: radial-in 0.15s ease-out forwards;
+  overflow: hidden;
 }
 
 @keyframes radial-in {
@@ -21,21 +22,32 @@
 }
 
 
-
 .radial-option {
   position: absolute;
+  top: 50%;
+  left: 50%;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  transform-origin: center;
+}
+
+.radial-option::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.radial-option:hover {
-  transform: scale(1.15);
+.radial-option:hover::after {
+  transform: scale(1.25);
   box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
 }
+
+
 
 .radial-center {
   width: 40px;
@@ -68,3 +80,18 @@
 .radial-option.green  { background: #22c55e; }
 .radial-option.purple { background: #a855f7; }
 .radial-option.orange { background: #f97316; }
+
+
+.radial-svg {
+  position: absolute;
+  inset: 0;
+}
+
+.svg-wedge {
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.svg-wedge:hover {
+  filter: brightness(1.15);
+}
