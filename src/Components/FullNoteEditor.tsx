@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./FullNoteEditor.css";
 
 type Note = {
   id: number;
