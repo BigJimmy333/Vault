@@ -149,9 +149,10 @@ function Notes() {
             >
                 <h2>{note.title || "Untitled"}</h2>
                 <p className="note-text">{note.text}</p>
-
-                <button onClick={() => {setEditingNote(note); setIsFullEditorOpen(true);}} >Edit</button>
-                <button className="delete-btn" onClick={() => deleteNote(note.id)}> Delete </button>
+                <div className="note-actions">
+                    <button onClick={() => {setEditingNote(note); setIsFullEditorOpen(true);}} >Edit</button>
+                    <button onClick={() => deleteNote(note.id)}> Delete </button>
+                </div>
             </div>
             ))}
             </div>
