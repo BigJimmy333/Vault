@@ -183,12 +183,7 @@ function Notes() {
             >＋</button>
 
             {/* Bottom Nav */}
-            <nav className="bottom-nav">
-                <span className="active">Notes</span>
-                <span>Folders</span>
-                <span>Favorites</span>
-                <span>Settings</span>
-            </nav>
+            
 
         </div> 
     )
