@@ -1,13 +1,62 @@
-import "./Folder.css"
+import { useEffect, useState } from "react";
+import "./Folder.css";
 
-function Folders() {
+type Folder = {
+  id: number;
+  name: string;
+};
+
+export default function Folder() {
+  const [folders, setFolders] = useState<Folder[]>(() => {
+    const saved = localStorage.getItem("folders");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("folders", JSON.stringify(folders));
+  }, [folders]);
+
+  function addFolder() {
+    const name = prompt("Folder name?");
+    if (!name || !name.trim()) return;
+
+    const newFolder: Folder = {
+      id: Date.now(),
+      name: name.trim(),
+    };
+
+    setFolders([...folders, newFolder]);
+  }
+
   return (
-    <div className="folder-page">
-      <h1>Folders</h1>
-      <p>This is the folders page.</p>
-      <img src="data:image/jpeg;base64,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"></img >
+    <div className="notes-page folders-page">
+      <div className="folders-title-wrap">
+        <h1 className="folders-title">Folders</h1>
+      </div>
+
+      <div className="folders-list">
+        {folders.length === 0 ? (
+          <p style={{ padding: "0 20px", opacity: 0.7 }}>
+            No folders yet.
+          </p>
+        ) : (
+          folders.map((folder) => (
+            <div key={folder.id} className="folder-row">
+               {folder.name}
+            </div>
+          ))
+        )}
+      </div>
+
+      <div className="folders-cta">
+        <button
+          className="folders-create-btn"
+          onClick={addFolder}
+          type="button"
+        >
+          + Create Folder
+        </button>
+      </div>
     </div>
   );
 }
-
-export default Folders;

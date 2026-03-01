@@ -11,6 +11,7 @@ type Note = {
   text: string;
   title: string;
   color: NoteColor;
+  
 };
 
 function Notes() {
@@ -172,8 +173,6 @@ function Notes() {
             }}
             onClose={() => setContextMenu(null)}
             />
-
-
 
             {/* When user clicks button they can create a new note */}
             <button className="add-note-btn" onClick={() => {

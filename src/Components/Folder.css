@@ -1,6 +1,147 @@
-.folder-page {
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #111827, #020617);
+
+.folders-header {
+  padding-top: 10px;
+}
+
+/*Adds gap between folder and search bar*/
+.folders-title-wrap {
+  padding: 0 20px 10px;
+}
+
+/*Delets white space at the top*/
+.folders-title {
+  font-size: 44px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Adds gap between folders */
+.folders-list {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+.folder-row {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(30, 41, 59, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.folder-row:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+/* Icon tile */
+.folder-tile {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.folder-emoji {
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* Tile color variants */
+.folder-tile-blue { background: rgba(37, 99, 235, 0.25); }
+.folder-tile-pink { background: rgba(236, 72, 153, 0.22); }
+.folder-tile-teal { background: rgba(20, 184, 166, 0.22); }
+.folder-tile-amber { background: rgba(245, 158, 11, 0.22); }
+.folder-tile-purple { background: rgba(168, 85, 247, 0.22); }
+
+.folder-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.folder-name {
+  font-size: 22px;
+  font-weight: 700;
   color: #e5e7eb;
-  padding-bottom: 80px; /* space for bottom nav */
+}
+
+.folder-updated {
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgba(226, 232, 240, 0.65);
+}
+
+.folder-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.folder-count {
+  width: 44px;
+  text-align: right;
+  font-size: 18px;
+  color: rgba(226, 232, 240, 0.6);
+}
+
+.folder-chev {
+  font-size: 26px;
+  color: rgba(226, 232, 240, 0.35);
+  margin-top: -2px;
+}
+
+/* CTA fixed above bottom nav */
+.folders-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 76px; /* adjust if your nav height differs */
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.folders-create-btn {
+  pointer-events: auto;
+  width: min(720px, 100%);
+  height: 62px;
+  border-radius: 18px;
+  border: none;
+  background: #1d4ed8;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  box-shadow: 0 10px 25px rgba(29, 78, 216, 0.28);
+}
+
+.folders-plus {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 20px;
+  line-height: 1;
 }
