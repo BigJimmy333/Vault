@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./Folder.css";
 
+//What a folder contains
 type Folder = {
-  id: number;
+  id: number; //To track each folder
   name: string;
 };
 
+//Creates a folder and save
 export default function Folder() {
   const [folders, setFolders] = useState<Folder[]>(() => {
     const saved = localStorage.getItem("folders");
